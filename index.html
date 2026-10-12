@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Can a Frontier VLM Serve as a Full-Context Robot Policy?</title>
+<title>Can a Frontier VLM Serve as a Robot Policy for Memory-Dependent Manipulation?</title>
 <meta name="description" content="GPT-6-Astra, used directly as the robot policy with the whole episode in context, succeeds in 92.1% of RoboMME's 800 test episodes with no RoboMME-specific training.">
-<meta property="og:title" content="Can a Frontier VLM Serve as a Full-Context Robot Policy?">
+<meta property="og:title" content="Can a Frontier VLM Serve as a Robot Policy for Memory-Dependent Manipulation?">
 <meta property="og:description" content="GPT-6-Astra on memory-dependent manipulation: 92.1% on RoboMME's 800 test episodes, with no RoboMME-specific training.">
 <meta property="og:image" content="https://embodied-astra.github.io/img/teaser.png">
 <meta property="og:url" content="https://embodied-astra.github.io/">
@@ -30,7 +30,7 @@ a:hover { text-decoration: underline; }
 .narrow { max-width: 820px; }
 .nw { white-space: nowrap; }
 header.hero { padding: 72px 0 36px; text-align: center; }
-h1 { font-size: clamp(30px, 4.6vw, 48px); line-height: 1.12; letter-spacing: -0.02em; margin: 0 auto 14px; max-width: 900px; font-weight: 800; }
+h1 { font-size: clamp(30px, 4.6vw, 48px); line-height: 1.12; letter-spacing: -0.02em; margin: 0 auto 14px; max-width: 980px; font-weight: 800; text-wrap: balance; }
 .subtitle { font-size: clamp(18px, 2.4vw, 23px); font-style: italic; color: var(--muted); margin: 0 0 26px; font-weight: 400; }
 .authors { font-size: 18px; font-weight: 600; margin: 0 0 4px; }
 .authors span + span::before { content: ""; display: inline-block; width: 28px; }
@@ -84,7 +84,7 @@ td.task, th:nth-child(2) { text-align: left; }
 .suite-cell { font-weight: 600; color: var(--muted); text-align: left; vertical-align: middle; }
 td.win { color: var(--win); font-weight: 700; }
 tr.avg td { font-weight: 800; border-bottom: none; background: var(--bg-alt); }
-.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; max-width: 860px; margin: 0 auto; }
 .method { display: grid; grid-template-columns: 1fr; gap: 8px; }
 .method ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; list-style: none; padding: 0; }
 .method li { background: var(--bg-alt); border-radius: 14px; padding: 16px 18px; }
@@ -110,7 +110,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
 <body>
 <header class="hero">
   <div class="wrap">
-    <h1>Can a Frontier VLM Serve as a <span class="nw">Full-Context</span> Robot Policy?</h1>
+    <h1>Can a Frontier VLM Serve as a Robot Policy for <span class="nw">Memory-Dependent</span> Manipulation?</h1>
     <p class="subtitle">GPT-6-Astra on Memory-Dependent Manipulation</p>
     <p class="authors"><span>Jack B. Jedlicki</span><span>Amish Sethi</span><span>Heng Yang</span></p>
     <p class="affil">Harvard University</p>
@@ -176,8 +176,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
 <section class="alt">
   <div class="wrap">
     <h2>One success for each of the 16 tasks</h2>
-    <p class="lead">Each clip is one test episode, chosen as the success closest to the task's median length. Under each clip are the
-    descriptions the model wrote at each step, alongside its waypoint.</p>
+    <p class="lead">Each clip is one test episode, chosen as the success closest to the task's median length.</p>
     <div class="legend"><span>Left: front camera &middot; right: wrist camera</span><span><i></i>Red border: task video shown before the robot acts</span><span>Played at 1.5&times; real time</span></div>
     
     <div class="suite">
@@ -189,7 +188,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>BinFill</h4><span class="badge">49/50 solved</span></div>
           <p class="goal">&ldquo;put three green cubes into the bin, then press the button to stop&rdquo;</p>
           
-          <details><summary>Model's own descriptions (17 steps)</summary><ol><li>I see five green cubes, an open bin, and a button. I will approach the central cube first.</li><li>The central cube is under the wrist camera. I will lower the open fingers around it and grasp it.</li><li>The fingers have closed around the first cube. I will lift it clear of the table.</li><li>The first cube is lifted securely. I will carry it above the bin.</li><li>The cube is positioned over the bin opening. I will lower it slightly and release it inside.</li><li>The first cube has dropped into the bin. I will move above the nearby green cube in front of it.</li><li>The second cube is centered beneath the gripper. I will descend and close the fingers around it.</li><li>The second cube is grasped. I will lift it above the bin rim.</li><li>The second cube is clear of the table. I will carry it over the bin.</li><li>The second cube is above the opening. I will lower it and release it into the bin.</li><li>Two cubes have now been released into the bin. I will approach the green cube behind the bin for the third pickup.</li><li>The third cube is aligned beneath the fingers. I will lower the gripper and grasp it.</li><li>The fingers are holding the third cube. I will lift it clear before moving to the bin.</li><li>The third cube is lifted securely. I will move it above the bin.</li><li>The third cube is over the bin. I will lower and release it, then move to the stop button.</li><li>All three cubes have been released into the bin. I will position the closed gripper above the stop button.</li><li>The closed fingertips are aligned above the button. I will lower them to press it and stop.</li></ol></details>
+          
         </div>
       </article>
       <article class="card">
@@ -198,7 +197,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>PickXtimes</h4><span class="badge">50/50 solved</span></div>
           <p class="goal">&ldquo;pick up the red cube and place it on the target, repeating this action two times, then press the button to stop&rdquo;</p>
           
-          <details><summary>Model's own descriptions (12 steps)</summary><ol><li>The red cube is to the robot&#x27;s right of the button, and the purple target is farther forward. I will move above the cube with the gripper open.</li><li>The wrist view shows the cube beneath the open fingers. I will lower around its center and close the gripper.</li><li>The fingers have closed around the red cube. I will lift it clear of the table before carrying it to the target.</li><li>The cube lifted securely. I will carry it over the purple target.</li><li>The held cube is above the target. I will lower it onto the target and release it for the first placement.</li><li>The gripper is open and the cube is resting on the target. I will raise the hand to clear it and check the scene before repeating.</li><li>The first placement is visible on the purple target. I will grasp the cube again to perform the second pick-and-place.</li><li>The cube is grasped again. I will lift it fully off the target for the second cycle.</li><li>The cube is clearly lifted off the target. I will lower and release it onto the target for the second placement.</li><li>The second placement is released. I will lift the open hand away before moving to the stop button.</li><li>The cube remains on the target after two pick-and-place cycles. I will move above the stop button and close the empty gripper for pressing.</li><li>The closed fingertips are above the stop button. I will lower onto its center to press it.</li></ol></details>
+          
         </div>
       </article>
       <article class="card">
@@ -207,7 +206,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>SwingXtimes</h4><span class="badge">49/50 solved</span></div>
           <p class="goal">&ldquo;pick up the green cube, move it to the top of the right-side target, then move it to the top of the left-side target, repeating this back-and-forth motion three times, finally press the button to stop&rdquo;</p>
           
-          <details><summary>Model's own descriptions (11 steps)</summary><ol><li>The green cube is near the robot’s right side. I will approach it from above with the gripper open.</li><li>The wrist view shows the green cube below the open fingers. I will lower onto its center and grasp it.</li><li>The fingers have closed around the green cube. I will lift it and move above the right-side target for the first visit.</li><li>The right-side target has turned red, registering the first visit. I will carry the cube to the left-side target to complete the first back-and-forth cycle.</li><li>The left-side target is now red, completing cycle one. I will return the held cube to the right-side target for cycle two.</li><li>The second right-side visit has registered. I will move the cube above the left-side target again to complete cycle two.</li><li>The second left-side visit has registered, completing cycle two. I will carry the cube to the right-side target for the third and final cycle.</li><li>The third right-side visit has registered. I will move to the left-side target once more, completing the three requested cycles.</li><li>The third left-side visit has registered, completing all three cycles. I will set the cube down at the left target, then press the stop button.</li><li>The cube is resting at the left target and the gripper is open. I will move above the stop button and close the empty fingers for pressing.</li><li>The empty, closed gripper is above the stop button. I will align with its center and lower to press it.</li></ol></details>
+          
         </div>
       </article>
       <article class="card">
@@ -216,7 +215,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>StopCube</h4><span class="badge">27/50 solved</span></div>
           <p class="goal">&ldquo;press the button to stop the cube just as it reaches the target for the third time&rdquo;</p>
           
-          <details><summary>Model's own descriptions (14 steps)</summary><ol><li>The cube is left of the target in the front view. I will move above the button and track the target crossings before pressing on the third arrival.</li><li>The cube is approaching its first target crossing. I will lower to a ready position above the button without pressing it.</li><li>The cube has crossed the target once and is continuing to the far side. I will keep the button unpressed while monitoring its return.</li><li>The cube is nearing the far end of its path after the first crossing. I will return to the button-ready height as it turns back.</li><li>The cube has reversed direction and is heading toward its second crossing. I will continue waiting without contacting the button.</li><li>The cube is approaching the target from the far side for its second crossing. I will lower above the button but leave it unpressed.</li><li>The cube has now crossed the target twice. I will wait for it to reverse at the near end, then time the press for the third arrival.</li><li>Two crossings are complete; the cube is still moving away from the target. I will return above the button for the final approach.</li><li>The cube is at the near turning point. Its next pass over the target will be the third, so I will keep poised above the button.</li><li>The cube has started toward its third crossing. I will move closer to the button, leaving clearance for a short final press.</li><li>The cube is advancing toward the target, with the third crossing still ahead. I will make a small upward waiting motion to fine-tune the timing.</li><li>The third crossing is approaching. I will settle back to the low hover position, still clear of the button.</li><li>The cube is roughly one short press-motion away from its final approach. I will make one small upward adjustment before pressing.</li><li>The cube is approaching the target for the third time. I will press now, allowing for the arm’s descent time so the stop occurs at the target.</li></ol></details>
+          
         </div>
       </article>
       </div>
@@ -230,7 +229,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>VideoUnmask</h4><span class="badge">47/50 solved</span></div>
           <p class="goal">&ldquo;watch the video carefully, then pick up the container hiding the blue cube&rdquo;</p>
           
-          <details><summary>Model's own descriptions (4 steps)</summary><ol><li>The blue cube was covered by the container on the right side of the front image. I will move above that container with the gripper open.</li><li>The target container remains stationary, and the wrist view confirms its position. I will lower the open fingers around its sides.</li><li>The open fingers are positioned around the target container. I will lower slightly and close the gripper to grasp it.</li><li>The fingers have closed around the container. I will lift it vertically to uncover the blue cube.</li></ol></details>
+          
         </div>
       </article>
       <article class="card">
@@ -239,7 +238,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>VideoUnmaskSwap</h4><span class="badge">48/50 solved</span></div>
           <p class="goal">&ldquo;watch the video carefully, then pick up the container hiding the green cube&rdquo;</p>
           
-          <details><summary>Model's own descriptions (4 steps)</summary><ol><li>I tracked the green cube’s container through both swaps; it is now the middle-left container in the front image. I will move above it with the gripper open.</li><li>The target container is directly below the wrist camera. I will lower the open gripper around its sides, aligning with its rotated edges.</li><li>The open fingers are positioned around the target container. I will close them to grasp it.</li><li>The fingers have closed around the container. I will lift it straight up to uncover the green cube.</li></ol></details>
+          
         </div>
       </article>
       <article class="card">
@@ -248,7 +247,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>ButtonUnmask</h4><span class="badge">50/50 solved</span></div>
           <p class="goal">&ldquo;first press the button, then pick up the container hiding the green cube&rdquo;</p>
           
-          <details><summary>Model's own descriptions (11 steps)</summary><ol><li>The button is behind the three colored cubes. I will move above it with the gripper closed, then lower to press it.</li><li>Containers have appeared over the cubes; the green cube is under the middle-right container. I am above the button and will lower the closed fingertips to press it.</li><li>The fingertips are touching the button, but it has not visibly activated. I will press slightly farther down.</li><li>I have pressed against the button. I will lift away and open the gripper, watching for any container movement.</li><li>The button has not changed appearance. I will lower the open gripper over it so the TCP can reach the button center without the closed fingertips stopping above it.</li><li>The open gripper is centered over the button. I will lower a few more millimeters to complete the press.</li><li>I will close the gripper at the button and then withdraw to check whether the press has registered.</li><li>The button has been contacted and the containers remain in their original positions. I will lift clear and approach the middle-right container, which covered the green cube.</li><li>I am above the container that covered the green cube. I will lower the open fingers around its sides.</li><li>The fingers are positioned around the target container. I will close them to grasp its sides.</li><li>The gripper has closed onto the container. I will lift it straight up to reveal the green cube.</li></ol></details>
+          
         </div>
       </article>
       <article class="card">
@@ -257,7 +256,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>ButtonUnmaskSwap</h4><span class="badge">49/50 solved</span></div>
           <p class="goal">&ldquo;first press both buttons on the table, then pick up the container hiding the green cube&rdquo;</p>
           
-          <details><summary>Model's own descriptions (11 steps)</summary><ol><li>Two buttons are visible behind the colored cubes. I will move above the button on the robot&#x27;s right and close the gripper to prepare to press it.</li><li>Containers have covered the cubes; the green cube was under the front container on the robot&#x27;s left. I am above the right button and will press it now.</li><li>The closed fingertips are contacting the right button. I will push slightly farther down to complete the press.</li><li>I have pushed against the right button. I will lift clear before moving to the other button, while tracking the container over the green cube.</li><li>The arm is clear of the right button. I will move above the left button.</li><li>I am above the left button and will lower the closed fingertips onto its center to press it.</li><li>The fingertips have contacted the second button. I will lift away and open the gripper before approaching the container that covered the green cube.</li><li>The green cube&#x27;s container remained at the front on the robot&#x27;s left while the other containers moved. I will position the open gripper above it.</li><li>The target container is centered beneath the wrist camera. I will align the fingers with its sides and lower them around it.</li><li>The open fingers now straddle the target container. I will close them around its sides.</li><li>The fingers have closed against the container. I will lift it vertically to uncover the green cube.</li></ol></details>
+          
         </div>
       </article>
       </div>
@@ -271,7 +270,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>PickHighlight</h4><span class="badge">49/50 solved</span></div>
           <p class="goal">&ldquo;first press the button, then pick up all cubes that have been highlighteted with white areas on the table&rdquo;</p>
           
-          <details><summary>Model's own descriptions (8 steps)</summary><ol><li>I see three cubes and a gray button. I will move above the button before pressing it.</li><li>The blue cube on the robot&#x27;s left has a white highlight. I am above the button and will lower the closed fingertips to press it.</li><li>The fingertips are contacting the button. I will press slightly farther down to ensure it activates.</li><li>The white highlight has disappeared; I have remembered the blue cube on the robot&#x27;s left as a target. I will lift off the button and open the gripper.</li><li>I will move above the blue cube that was highlighted on the robot&#x27;s left.</li><li>The wrist camera shows the target just off center. I will align with it and lower the open fingers around the cube.</li><li>The fingers are positioned around the highlighted blue cube. I will close them to grasp it.</li><li>The gripper has closed around the blue cube. I will lift it clear of the table.</li></ol></details>
+          
         </div>
       </article>
       <article class="card">
@@ -280,7 +279,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>VideoRepick</h4><span class="badge">50/50 solved</span></div>
           <p class="goal">&ldquo;watch the video carefully, then pick up the same block that was previously picked up again, finally put it down and press the button to stop&rdquo;</p>
           
-          <details><summary>Model's own descriptions (7 steps)</summary><ol><li>The previously lifted block was the one nearest the button. After the two exchanges, it is again the upper-middle blue block. I will approach it with the gripper open.</li><li>The target block is beneath the open gripper. I will lower the fingertips around it and close the gripper.</li><li>The fingers have closed around the selected block. I will lift it clear of the table.</li><li>The same block is now lifted above the table. I will lower it back to its original spot and release it.</li><li>The block has been placed back on the table and released. I will lift away before moving to the stop button.</li><li>The gripper is clear of the released block. I will position the closed fingertips above the stop button.</li><li>The closed fingertips are aligned over the stop button. I will lower them to press it.</li></ol></details>
+          
         </div>
       </article>
       <article class="card">
@@ -289,7 +288,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>VideoPlaceButton</h4><span class="badge">50/50 solved</span></div>
           <p class="goal">&ldquo;watch the video carefully, then place the green cube on the target right after the button was pressed&rdquo;</p>
           
-          <details><summary>Model's own descriptions (6 steps)</summary><ol><li>The cube was placed on the image-left target immediately after the button press, then moved away. I will pick up the cube and return it to that target.</li><li>The open gripper is above the green cube. I will lower it around the cube and grasp it.</li><li>The fingers have closed around the cube. I will lift it clear of the table.</li><li>The cube is lifted securely. I will carry it above the target used immediately after the button press, on the robot&#x27;s right.</li><li>The cube is above the correct target. I will lower it onto the target while keeping the grasp.</li><li>The cube is centered over the target at table height. I will lower it slightly and open the gripper to release it.</li></ol></details>
+          
         </div>
       </article>
       <article class="card">
@@ -298,7 +297,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>VideoPlaceOrder</h4><span class="badge">49/50 solved</span></div>
           <p class="goal">&ldquo;watch the video carefully, then place the green cube on the first target it was previously placed on&rdquo;</p>
           
-          <details><summary>Model's own descriptions (5 steps)</summary><ol><li>The cube was first placed on the upper of the two targets on the image’s right. It now rests near the middle; I will approach it with the gripper open.</li><li>The open gripper is above the cube. I will lower around it and close the fingers.</li><li>The fingers have closed around the cube. I will lift it clear of the table.</li><li>The cube lifted successfully. I will carry it above the first target, the upper-right ring in the front image.</li><li>The cube is above the remembered first target. I will lower it onto the ring and release it.</li></ol></details>
+          
         </div>
       </article>
       </div>
@@ -312,7 +311,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>MoveCube</h4><span class="badge">27/50 solved</span></div>
           <p class="goal">&ldquo;watch the video carefully, then move the cube to the target in the same manner as before&rdquo;</p>
           
-          <details><summary>Model's own descriptions (6 steps)</summary><ol><li>The demonstration picked up the cube, lifted it, carried it to the target, and lowered it before releasing. I will repeat that motion, first moving above the cube with the gripper open.</li><li>The open gripper is above the cube. I will lower it around the cube and close to grasp it.</li><li>The fingers have closed around the cube. I will lift it straight up, as in the demonstration.</li><li>The cube is lifted clear of the table. I will carry it over the purple target while keeping the gripper closed.</li><li>The cube is above the target. I will lower it onto the table before releasing it.</li><li>The cube has been lowered onto the target. I will open the fingers to release it.</li></ol></details>
+          
         </div>
       </article>
       <article class="card">
@@ -321,7 +320,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>InsertPeg</h4><span class="badge">46/50 solved</span></div>
           <p class="goal">&ldquo;watch the video carefully, then grasp the same end of the same peg you&#x27;ve picked before and insert it into the same side of the box&rdquo;</p>
           
-          <details><summary>Model's own descriptions (9 steps)</summary><ol><li>The demonstration picked the middle peg by its yellow end and inserted its purple end into the box’s left side (+y, image right). I will approach the same yellow end.</li><li>The middle peg is directly below the hand. I will lower onto the yellow half, keeping the fingers across the peg.</li><li>The fingertips now straddle the yellow end of the demonstrated peg. I will close the gripper.</li><li>The gripper has closed around the yellow end. I will lift the peg clear of the table.</li><li>The correct peg is lifted securely. I will move to the box’s +y side and turn the purple end toward that side opening.</li><li>The purple end now points toward the demonstrated side. I will lower it to the side opening’s height while staying clear of the box.</li><li>The peg is at the opening’s height. I will bring its purple tip close to the +y face and refine the lateral alignment.</li><li>The purple tip is just outside the same side of the box. I will advance it straight into the opening.</li><li>The purple end has entered the box without shifting it. I will continue straight inward to seat the peg to the demonstrated depth.</li></ol></details>
+          
         </div>
       </article>
       <article class="card">
@@ -330,7 +329,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>PatternLock</h4><span class="badge">50/50 solved</span></div>
           <p class="goal">&ldquo;watch the video carefully, then use the stick attached to the robot to retrace the same pattern&rdquo;</p>
           
-          <details><summary>Model's own descriptions (3 steps)</summary><ol><li>The demonstrated pattern goes from the middle-left dot to the center, then to the bottom-center dot, and diagonally to the middle-right dot. The stick is back at the starting dot; I will trace the first segment to the center.</li><li>The stick has traced the first segment and reached the center dot. I will now trace straight toward the bottom-center dot.</li><li>The stick has reached the bottom-center dot. I will trace the final diagonal to the middle-right dot in the front-camera view.</li></ol></details>
+          
         </div>
       </article>
       <article class="card">
@@ -339,7 +338,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>RouteStick</h4><span class="badge">47/50 solved</span></div>
           <p class="goal">&ldquo;watch the video carefully, then use the stick attached to the robot to navigate around the sticks on the table, following the same path&rdquo;</p>
           
-          <details><summary>Model's own descriptions (16 steps)</summary><ol><li>The demonstration circles the leftmost green stick, returns to the starting gap, then weaves rightward around the next two sticks. I will first follow the forward side of the initial loop.</li><li>The stick is moving forward around the green obstacle along the demonstrated curve. I will continue to the front of it.</li><li>The stick has reached the forwardmost part of the loop. I will curve toward the outside gap.</li><li>The stick is clear of the obstacle on its outer side. I will reach the outside marker before rounding the back.</li><li>The outside marker has turned red, matching the demonstration. I will now pass behind the same green stick.</li><li>The stick is rounding the rear of the first green obstacle. I will continue across its back side.</li><li>The rear midpoint is clear. I will curve back toward the original gap.</li><li>The stick has passed behind the first obstacle. I will return to the starting marker to complete its loop.</li><li>The first loop is complete at the starting gap. Following the demonstration, I will now go behind the next green stick toward the robot&#x27;s right.</li><li>The stick is entering the rear arc around the second green obstacle. I will continue behind its center.</li><li>The stick is behind the second green obstacle. I will curve toward the next gap on its right.</li><li>The rear arc is nearly complete. I will enter the gap between the green and teal sticks.</li><li>The middle marker is red, as in the demonstration. I will now weave forward around the teal stick.</li><li>The stick is moving along the forward side of the teal obstacle. I will continue to the midpoint of that arc.</li><li>The stick is in front of the teal obstacle. I will round its right side toward the final demonstrated gap.</li><li>The stick has cleared the teal obstacle on the demonstrated forward arc. I will finish at the marker between the teal and purple sticks.</li></ol></details>
+          
         </div>
       </article>
       </div>
@@ -348,8 +347,10 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
 </section>
 
 <section>
-  <div class="wrap narrow">
-    <h2>Per-task results</h2>
+  <div class="wrap">
+    <h2>Results by memory type and by task</h2>
+    <figure class="teaser" style="margin:8px 0 22px"><img src="img/radar.svg" alt="Radar charts of success rate by suite and by task for GPT-6-Astra, human players and PonderPounce-9B.">
+      <figcaption>Left: mean success of each suite's four tasks, with the memory type it targets. Right: all 16 tasks.</figcaption></figure>
     <p class="lead">Success rate (%) on the 50 test episodes of each task. Human players used RoboMME's oracle skill interface;
     PonderPounce-9B is the best leaderboard entry (joint-angle control, mean of 3 runs). Crimson marks our scores at or above the
     human score.</p>
@@ -392,7 +393,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>Premature completion</h4><span class="badge badge-fail">MoveCube</span></div>
           <p class="goal">&ldquo;watch the video carefully, then move the cube to the target in the same manner as before&rdquo;</p>
           <p class="explain">The model picks up the bar and pushes the cube onto the target, as demonstrated, but declares the task done while still holding the bar. The pushing variants of MoveCube require an open gripper at the end. This is the largest failure group (23 MoveCube episodes).</p>
-          <details><summary>Model's own descriptions (8 steps)</summary><ol><li>The demonstration used the long bar to push the cube along the table onto the target. I will grasp the bar near one end and repeat that pushing motion.</li><li>The gripper is above the bar. I will lower it around the near end and close to secure the tool.</li><li>The bar is held securely. I will lift and turn it so its long edge can push the cube toward the target.</li><li>The bar is turned across the cube-to-target direction. I will lower it to table height just behind the cube.</li><li>The bar is at table height behind the cube. I will slide it forward to contact the cube and begin pushing toward the target.</li><li>The cube is sliding ahead of the bar toward the target. I will continue the controlled push without lifting it.</li><li>The cube is now over the near edge of the target. I will make a small final push to center it.</li><li>The cube appears centered on the target after being pushed with the bar, matching the demonstration.</li></ol></details>
+          
         </div>
       </article>
       <article class="card fail">
@@ -401,7 +402,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>Unintended button contact</h4><span class="badge badge-fail">StopCube</span></div>
           <p class="goal">&ldquo;press the button to stop the cube just as it reaches the target for the second time&rdquo;</p>
           <p class="explain">Waiting for the cube's second arrival, the model moves closer to the button &ldquo;without pressing yet&rdquo; (commanded fingertip height 3.8&nbsp;cm), but the fingertips depress it too early and the episode ends (12 StopCube episodes).</p>
-          <details><summary>Model's own descriptions (3 steps)</summary><ol><li>The cube is approaching the target from the left of the image. I will move above the button and prepare to press on its second arrival.</li><li>The cube passed the target once and is continuing toward the far end. I will lower the closed fingertips to just above the button while waiting for its return.</li><li>The cube has reached the far end and is starting back. Its next crossing will be the second; I will move closer to the button without pressing yet.</li></ol></details>
+          
         </div>
       </article>
       <article class="card fail">
@@ -410,7 +411,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>Late press</h4><span class="badge badge-fail">StopCube</span></div>
           <p class="goal">&ldquo;press the button to stop the cube just as it reaches the target for the fourth time&rdquo;</p>
           <p class="explain">The model counts the cube's crossings and presses on what it describes as the fourth arrival, but the press registers after the cube has passed the target (11 StopCube episodes).</p>
-          <details><summary>Model's own descriptions (8 steps)</summary><ol><li>The cube is approaching the marked target. I will move above the button and track the target visits before pressing on the fourth.</li><li>The cube has crossed the target once and is now near the far end of its travel. I will lower the closed fingertips to a ready position above the button.</li><li>The cube is returning toward the target for its second crossing. I will keep clear of the button while the next passes occur.</li><li>The second target crossing has occurred. I will return to a low hover over the button before the third crossing.</li><li>The cube is approaching its third crossing. I will continue waiting without touching the button; the following return will be the fourth.</li><li>The third crossing is complete. I will lower over the button, ready to press as the cube returns for the fourth crossing.</li><li>The cube is on its fourth approach. I will make a small timing adjustment above the button, then press as it reaches the target.</li><li>The cube is nearing the target on its fourth pass. I will press the button now, allowing for the downward motion time.</li></ol></details>
+          
         </div>
       </article>
       <article class="card fail">
@@ -419,7 +420,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>Out-of-reach waypoint</h4><span class="badge badge-fail">VideoUnmask</span></div>
           <p class="goal">&ldquo;watch the video carefully, then pick up the container hiding the green cube, finally pick up another container hiding the blue cube&rdquo;</p>
           <p class="explain">After uncovering the green cube, the model sets the container aside at the edge of the arm's reach. The executor runs the motion until the 1300-step limit without reaching the pose (4 episodes).</p>
-          <details><summary>Model's own descriptions (4 steps)</summary><ol><li>The green cube was covered by the front-left container in the image; the blue cube is under the central container. I will approach the green cube’s container first.</li><li>The gripper is above the container hiding the green cube. I will lower around its sides and close the fingers.</li><li>The fingers have closed against the container. I will lift it to uncover the green cube.</li><li>The lifted container revealed the green cube. I will move the container to a clear area before picking up the one covering the blue cube.</li></ol></details>
+          
         </div>
       </article>
       <article class="card fail">
@@ -428,7 +429,7 @@ footer { padding: 36px 0 48px; color: var(--muted); font-size: 14px; text-align:
           <div class="card-head"><h4>Peg grasped by the wrong end</h4><span class="badge badge-fail">InsertPeg</span></div>
           <p class="goal">&ldquo;watch the video carefully, then grasp the same end of the same peg you&#x27;ve picked before and insert it into the same side of the box&rdquo;</p>
           <p class="explain">The model describes grasping the demonstrated end of the peg, but the environment judges that it lifted the other end and ends the episode.</p>
-          <details><summary>Model's own descriptions (4 steps)</summary><ol><li>The demonstration picked the peg behind the box, grasping its robot-side end, then inserted the opposite end into the box’s +y side. I will approach that same peg from above.</li><li>The wrist view confirms the target peg immediately behind the box. I will lower the open fingers around its robot-side end.</li><li>The fingers are positioned around the demonstrated end of the peg. I will close them to secure it.</li><li>The gripper has closed around the peg. I will lift it clear of the box and table before reorienting it.</li></ol></details>
+          
         </div>
       </article>
     </div>
